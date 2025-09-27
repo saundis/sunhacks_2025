@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="./index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jake Runner — Hazard Zone Quiz</title>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <h1>Jake Runner — Hazard Zone Quiz <span style="font-weight:400; opacity:.7">(HTML5)</span></h1>
+      <div class="controls">Press <b>Space</b> / tap to jump • <button id="restart" class="btn">Restart</button></div>
+    </header>
+
+    <div id="gameWrap" class="panel">
+      <canvas id="game" width="960" height="360" aria-label="Endless runner game canvas"></canvas>
+      <div class="hud" aria-hidden="true">
+        <div class="chip" id="score">Score: 0</div>
+        <div class="chip" id="speed">Speed: 6</div>
+        <button class="btn jump">Jump</button>
+      </div>
+    </div>
+
+    <p class="legal panel" style="text-align:center; margin-top:10px">This is a fan-made educational prototype. Use a generic avatar if you’re showcasing publicly. No affiliation or endorsement implied.</p>
+  </div>
+
+  <!-- Quiz Modal -->
+  <div id="quizModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="quizTitle">
+    <div class="card">
+      <h2 id="quizTitle">Hazard Check</h2>
+      <p id="quizPrompt">Question text…</p>
+      <div id="quizOptions" class="options"></div>
+      <div class="meta">
+        <div id="quizFeedback"></div>
+        <button id="continueBtn" class="btn" style="display:none">Continue</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
