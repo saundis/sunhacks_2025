@@ -15,7 +15,29 @@
     });
 
     function initLeaderboard() {
+      let skipNextResetSave = false;
+
+      // Save when Restart overlay confirms
+      window.addEventListener('hazard:restart', (e) => {
+        const score = Math.max(0, Math.floor((e && e.detail && e.detail.score) || 0));
+        const nm = getName() || 'YOU';
+        if (score > 0) addScore(nm, score);
+        skipNextResetSave = true; // avoid double-save in reset wrapper
+      });
         const originalReset = window.reset;
+        window.reset = function patchedReset(){
+          try {
+            if (!skipNextResetSave) {
+              if (window.game && Number.isFinite(window.game.score) && window.game.score > 0) {
+                const nm = getName() || 'YOU';
+                addScore(nm, window.game.score);
+              }
+            }
+          } catch(_) {}
+          const r = originalReset();
+          skipNextResetSave = false;
+          return r;
+        };
 
         // Styles
         const style = document.createElement('style');
