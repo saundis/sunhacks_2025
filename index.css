@@ -61,6 +61,7 @@ canvas {
     padding: 10px 12px;
     display: flex;
     justify-content: space-between;
+    color: black;
 }
 
 .btn {
