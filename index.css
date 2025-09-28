@@ -21,7 +21,15 @@
     .panel { background: linear-gradient(180deg, #0b1220, var(--panel)); border: 1px solid #1f2937; border-radius: 16px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.04); }
     #gameWrap { position: relative; }
     canvas { width: 100%; height: auto; display:block; background: linear-gradient(#0b1020, #0a0f1c); border-radius: 14px; }
-    .hud { position: absolute; inset: 0; pointer-events: none; padding: 10px 12px; display:flex; justify-content:space-between; }
+.hud { 
+  position: absolute; 
+  inset: 0; 
+  pointer-events: none; 
+  padding: 10px 12px; 
+  display:flex; 
+  justify-content:space-between; 
+}
+
     .chip { background: rgba(17,24,39,.7); border: 1px solid rgba(255,255,255,.08); padding: 6px 10px; border-radius: 999px; font-size: 13px; backdrop-filter: blur(6px); }
     .btn { appearance: none; border: 0; background: var(--accent-3); color: white; padding: 10px 14px; border-radius: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 8px 16px rgba(59,130,246,.35); }
     .btn:active { transform: translateY(1px); }
@@ -41,3 +49,8 @@
 
     /* Touch jump button */
     .jump { position: absolute; right: 12px; bottom: 12px; pointer-events: auto; }
+
+.YES {
+  position: absolute;
+  left: -1.25vw;
+}
