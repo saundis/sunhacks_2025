@@ -38,26 +38,63 @@
         this.anim = (this.anim + 0.2) % 2;
       }
       draw(ctx){
-        // Shadow
-        ctx.fillStyle = 'rgba(0,0,0,.25)';
-        ctx.beginPath(); ctx.ellipse(this.x + this.w/2, GROUND_Y + 10, 18, 6, 0, 0, Math.PI*2); ctx.fill();
-        // Legs (khakis)
-        ctx.fillStyle = getCSS('--khaki');
-        ctx.fillRect(this.x+6, this.y - this.h + 34, 10, 22);
-        ctx.fillRect(this.x+20, this.y - this.h + 34, 10, 22);
-        // Shoes
-        ctx.fillStyle = '#111827';
-        ctx.fillRect(this.x+6, this.y - 6, 12, 6);
-        ctx.fillRect(this.x+22, this.y - 6, 12, 6);
-        // Torso (red polo)
-        ctx.fillStyle = getCSS('--accent');
-        ctx.fillRect(this.x, this.y - this.h + 4, this.w, 34);
-        // Head
-        ctx.fillStyle = '#f9d3a6';
-        ctx.beginPath(); ctx.arc(this.x + this.w/2, this.y - this.h + 4, 10, 0, Math.PI*2); ctx.fill();
-        // Name tag
-        ctx.fillStyle = '#ffffff'; ctx.fillRect(this.x + 6, this.y - this.h + 10, 12, 8);
-      }
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,.25)';
+  ctx.beginPath(); 
+  ctx.ellipse(this.x + this.w/2, GROUND_Y + 10, 18, 6, 0, 0, Math.PI*2); 
+  ctx.fill();
+
+  // Legs (khakis)
+  ctx.fillStyle = '#c3b091'; // khaki beige
+  ctx.fillRect(this.x+6,  this.y - this.h + 34, 10, 22);
+  ctx.fillRect(this.x+20, this.y - this.h + 34, 10, 22);
+
+  // Shoes (black dress shoes)
+  ctx.fillStyle = '#111827';
+  ctx.fillRect(this.x+6,  this.y - 6, 12, 6);
+  ctx.fillRect(this.x+22, this.y - 6, 12, 6);
+
+  // Torso (red polo)
+  ctx.fillStyle = '#b91c1c'; // deep red
+  ctx.fillRect(this.x, this.y - this.h + 4, this.w, 34);
+
+  // Collar hint (white triangle-ish highlights)
+  ctx.fillStyle = '#fff';
+  ctx.beginPath();
+  ctx.moveTo(this.x+8, this.y - this.h + 6);
+  ctx.lineTo(this.x+12, this.y - this.h + 18);
+  ctx.lineTo(this.x+16, this.y - this.h + 6);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(this.x+24, this.y - this.h + 6);
+  ctx.lineTo(this.x+20, this.y - this.h + 18);
+  ctx.lineTo(this.x+28, this.y - this.h + 6);
+  ctx.closePath();
+  ctx.fill();
+
+  // Head (slightly darker skin tone)
+  ctx.fillStyle = '#e2b07c';
+  ctx.beginPath(); 
+  ctx.arc(this.x + this.w/2, this.y - this.h + 4, 10, 0, Math.PI*2); 
+  ctx.fill();
+
+  // Hair (short black top)
+  ctx.fillStyle = '#111';
+  ctx.beginPath();
+  ctx.arc(this.x + this.w/2, this.y - this.h + 4, 10, Math.PI, 0); 
+  ctx.fill();
+
+  // Name tag (white rectangle on shirt)
+  ctx.fillStyle = '#ffffff'; 
+  ctx.fillRect(this.x + 6, this.y - this.h + 12, 14, 8);
+
+  // Text “Jake” on tag (optional, tiny font)
+  ctx.fillStyle = '#111';
+  ctx.font = "6px sans-serif";
+  ctx.fillText("Jake", this.x + 7, this.y - this.h + 18);
+}
       bbox(){ return {x:this.x, y:this.y- this.h, w:this.w, h:this.h}; }
     }
 
